@@ -17,4 +17,12 @@ class Application < ApplicationRecord
       'applied'
     end
   end
+
+  def notes
+    events.where(type: 'Application::Event::Note')
+  end
+
+  def last_interview_date
+    events.where(type: 'Application::Event::Interview').order(created_at: :desc).first&.created_at
+  end
 end

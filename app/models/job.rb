@@ -16,4 +16,16 @@ class Job < ApplicationRecord
       'deactivated'
     end
   end
+
+  def ongoing_applications_count
+    applications.select { |application| !%w[hired rejected].include?(application.status) }.count
+  end
+
+  def hired_candidates_count
+    applications.joins(:events).where(domain_events: { type: 'Application::Event::Hired'}).count
+  end
+
+  def rejected_candidates_count
+    applications.joins(:events).where(domain_events: { type: 'Application::Event::Rejected'}).count
+  end
 end
