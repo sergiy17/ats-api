@@ -1,24 +1,28 @@
-# README
+### ATS with Event Sourcing
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<details>
+  <summary>Project setup</summary>
 
-Things you may want to cover:
+1. Clone the repo with `git clone https://github.com/sergiy17/ats-api`
 
-* Ruby version
+2. `rails db:setup` to create and seed the DB
+3. `rails s` to start the server
+</details>
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+<details>
+    <summary>Requests examples and screenshots</summary>
 
-* Database initialization
+```
+GET to http://localhost:3000/jobs
+```
+<img width="500" alt="Screenshot jobs" src="https://github.com/sergiy17/ats-api/blob/main/public/jobs.png">
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+GET to http://localhost:3000/applications
+```
+<img width="500" alt="Screenshot applications" src="https://github.com/sergiy17/ats-api/blob/main/public/applications.png">
 
-* Deployment instructions
 
-* ...
