@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_28_065225) do
+ActiveRecord::Schema.define(version: 2024_05_28_065616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2024_05_28_065225) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_applications_on_job_id"
+  end
+
+  create_table "domain_events", force: :cascade do |t|
+    t.string "type"
+    t.jsonb "data"
+    t.string "aggregate_type"
+    t.integer "aggregate_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "jobs", force: :cascade do |t|
